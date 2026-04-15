@@ -4,9 +4,7 @@ import 'package:flutter_application_abizar_4/header_widget.dart';
 import 'package:flutter_application_abizar_4/quest_widget.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,12 +22,8 @@ class MyApp extends StatelessWidget {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            HeaderWidget(
-              name: 'Himmel',
-              level: 99,
-              role: 'Pahlawan',
-            ),
-            SizedBox(height: 8,),
+            HeaderWidget(name: 'Himmel', level: 99, role: 'Pahlawan'),
+            SizedBox(height: 8),
             Row(
               spacing: 8,
               children: [
@@ -38,44 +32,56 @@ class MyApp extends StatelessWidget {
                   label: 'HP : ',
                   value: 999,
                   backgroundColor: Colors.red,
-                  borderColor: Colors.red, 
+                  borderColor: Colors.red,
                 ),
                 ChipWidget(
                   icon: Icons.favorite,
                   label: 'MP : ',
                   value: 999,
                   backgroundColor: Colors.blue,
-                  borderColor: Colors.blue, 
+                  borderColor: Colors.blue,
                 ),
                 ChipWidget(
                   icon: Icons.shield,
                   label: 'DEF : ',
                   value: 999,
                   backgroundColor: Colors.blueGrey,
-                  borderColor: Colors.black, 
+                  borderColor: Colors.black,
                 ),
               ],
             ),
-            SizedBox( height: 8,),
-            Text('Todays Quest', style: TextStyle(
-              fontWeight: .bold,
-              fontSize: 20
-            ),),
-            QuestWidget(
-              quest: 'Kalahkan Raja Iblis',
-              reward: 'Hidup Damai',
-              icon: Icons.task_alt,
-              backgroundColor: Colors.purpleAccent, 
+            SizedBox(height: 8),
+            Text(
+              'Todays Quest',
+              style: TextStyle(fontWeight: .bold, fontSize: 20),
             ),
-            QuestWidget(
-              quest: 'Kalahkan Raja Iblis',
-              reward: 'Hidup Damai',
-              icon: Icons.circle_outlined,
-              backgroundColor: Colors.purpleAccent,
-            ),
+            Column(
+              spacing: 8,
+              children: [
+                QuestWidget(
+                  quest: 'Membuat Party',
+                  reward: '1000 Gold',
+                  icon: Icons.task_alt,
+                  backgroundColor: Colors.purpleAccent,
+                ),
+                QuestWidget(
+                  quest: 'Kalahkan Raja Iblis',
+                  reward: 'Hidup Damai',
+                  icon: Icons.circle_outlined,
+                  backgroundColor: Colors.purpleAccent,
+                ),
+                QuestWidget(
+                  quest: 'Menyelamatkan Desa',
+                  reward: 'Buku Sihir',
+                  icon: Icons.circle_outlined,
+                  backgroundColor: Colors.purpleAccent,
+                )
+              ]
+            )
+
           ],
         ),
-      )
+      ),
     );
   }
 }

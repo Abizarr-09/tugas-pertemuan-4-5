@@ -5,7 +5,6 @@ class QuestWidget extends StatelessWidget {
   final String reward;
   final IconData icon;
   final Color backgroundColor;
-  
 
   const QuestWidget({
     super.key,
@@ -13,13 +12,15 @@ class QuestWidget extends StatelessWidget {
     required this.reward,
     required this.icon,
     required this.backgroundColor,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Quest Clicked!')));
       },
       child: Ink(
         padding: .all(12),
@@ -31,9 +32,9 @@ class QuestWidget extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withAlpha(10),
               blurRadius: 10,
-              offset: const Offset(0, 4)
-            )
-          ]
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Row(
           children: [
@@ -44,22 +45,18 @@ class QuestWidget extends StatelessWidget {
                 color: Colors.blueAccent.withAlpha(12),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(icon, color: backgroundColor,),
+              child: Icon(icon, color: backgroundColor),
             ),
             Expanded(
-              child:Column(
+              child: Column(
                 crossAxisAlignment: .start,
                 children: [
-                  Text(quest, 
-                  style: TextStyle(
-                    fontWeight: .bold,
-
-                  ),),
-                  SizedBox(height: 4,),
-                  Text(reward)
+                  Text(quest, style: TextStyle(fontWeight: .bold)),
+                  SizedBox(height: 4),
+                  Text(reward),
                 ],
-              ) 
-              )
+              ),
+            ),
           ],
         ),
       ),
